@@ -9,7 +9,8 @@ FULL_NAME = "Taha Aljasem"
 GITHUB_USER = "tahaEMU"
 # ------------------------
 
-TEXT = f"My name is {FIRST_NAME}, {FULL_NAME}."
+# NOTE: no trailing period to match the expected output exactly
+TEXT = f"My name is {FIRST_NAME}, {FULL_NAME}"
 
 # Compute character spans for FIRST_NAME and FULL_NAME
 first_start = TEXT.find(FIRST_NAME)
@@ -39,10 +40,14 @@ anonymizer = AnonymizerEngine()
 operators = {"PERSON": OperatorConfig("replace", {"new_value": GITHUB_USER})}
 anonymized = anonymizer.anonymize(text=TEXT, analyzer_results=results, operators=operators)
 
-# Required outputs
+# Required outputs with exact formatting (commas between dicts)
 print(f"text: {anonymized.text}")
 print("items:")
 print("[")
-for r in results:
-    print(f"    {{'start': {r.start}, 'end': {r.end}, 'entity_type': '{r.entity_type}'}}")
+for i, r in enumerate(results):
+    line = f"    {{'start': {r.start}, 'end': {r.end}, 'entity_type': '{r.entity_type}'}}"
+    if i < len(results) - 1:
+        line += ","
+    print(line)
 print("]")
+
