@@ -18,3 +18,13 @@ items:
     {'start': 11, 'end': 15, 'entity_type': 'PERSON'},
     {'start': 17, 'end': 29, 'entity_type': 'PERSON'}
 ]
+new check
+origin	git@github.com:tahaEMU/presidio.git (fetch)
+origin	git@github.com:tahaEMU/presidio.git (push)
+0
+text: My name is tahaEMU, tahaEMU
+items:
+[
+    {'start': 11, 'end': 15, 'entity_type': 'PERSON'},
+    {'start': 17, 'end': 29, 'entity_type': 'PERSON'}
+]
